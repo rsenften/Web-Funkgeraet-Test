@@ -1,0 +1,95 @@
+button {
+  border: 0 none;
+}
+
+#image-wrapper {
+  width: 800px;
+  height: 800px;
+}
+
+.draggableKnob {
+  margin-left: 590px;
+  margin-top: -332px;
+  height: 200px;
+  border-radius: 100px;
+}
+
+.draggableSmall {
+  position: absolute;
+  left: 92px;
+  top: 83px;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+}
+
+div.relative {
+  position: relative;
+  width: 400px;
+  height: 200px;
+}
+
+div.absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100px;
+}
+
+.button {
+  background-size: contain;
+  background-repeat:no-repeat;
+  background-position: center;
+  background-color: #1f2324;
+}
+
+.button:focus {
+  outline: 0;
+}
+
+#btnScan {
+  background-image: url("../../images/btn330_Low1.png");
+  width: 49px;
+  height: 30px;
+}
+
+#btnDW {
+  background-image: url("../../images/btn330_Low2.png");
+  width: 49px;
+  height: 29px;
+}
+
+#btnCH_WX {
+  background-image: url("../../images/btn330_Low3.png");
+  width: 49px;
+  height: 29px;
+}
+
+#btnHI_LO {
+  background-image: url("../../images/btn330_Low4.png");
+  width: 49px;
+  height: 29px;
+}
+
+.lowButtons {
+  display: flex;
+  margin-top: -166px;
+  margin-left: 312px;
+  width: fit-content;
+}
+
+.lowButtons > div {
+  margin-left: 4px;
+  width: 49px;
+}
+
+.lowButtons .divHI_LO {
+  margin-left: 5px;
+}
+
+#btnTemp {
+  background-image: url("../../images/temp.png");
+  width: 32px;
+  height: 32px;
+}

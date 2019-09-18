@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mein Funkgerät</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../src/css/style.css" media="screen">
+
+</head>
+<body>
+
+<h1>Funkgerät</h1>
+
+<div id="image-wrapper">
+  <img class="funkgeraet" src="../../images/IcomIcM330GE.jpg" alt="no">
+    <div class="draggableKnob">
+      <img id="rotateKnob" src="../../images/testKnob.png" alt="no image" width="74" height="74">
+    </div>
+<!--    <div class="draggableSmall">-->
+<!--      <img id="rotateSmall" src="../../images/RadSmall.png" alt="no image" width="52" height="52">-->
+<!--    </div>-->
+    <div class="lowButtons">
+      <div class="divScan">
+        <button id="btnScan" class="button" onmousedown="mouseDownScan()" onmouseup="mouseUpScan()"></button>
+      </div>
+      <div class="divDW">
+        <button id="btnDW" class="button" onmousedown="mouseDownDW()" onmouseup="mouseUpDW()"></button>
+      </div>
+      <div class="divCH_WX">
+        <button id="btnCH_WX" class="button" onmousedown="mouseDownCH_WX()" onmouseup="mouseUpCH_WX()"></button>
+      </div>
+      <div class="divHI_LO">
+        <button id="btnHI_LO" class="button" onmousedown="mouseDownHI_LO()" onmouseup="mouseUpHI_LO()"></button>
+      </div>
+    </div>
+  <div class="temp">
+    <button id="btnTemp" class="button" onmousedown="mouseDownTemp()" onmouseup="mouseUpTemp()"></button>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+
+  var clientWidthScan = document.getElementById('btnScan').style.width;
+  var clientHeightScan = document.getElementById('btnScan').style.height;
+  var clientWidthDW = document.getElementById('btnDW').style.width;
+  var clientHeightDW = document.getElementById('btnDW').style.height;
+  var clientWidthCH_WX = document.getElementById('btnCH_WX').style.width;
+  var clientHeightCH_WX = document.getElementById('btnCH_WX').style.height;
+  var clientWidthHI_LO = document.getElementById('btnHI_LO').style.width;
+  var clientHeightHI_LO = document.getElementById('btnHI_LO').style.height;
+  var clientWidthTemp = document.getElementById('btnTemp').style.width;
+  var clientHeightTemp = document.getElementById('btnTemp').style.height;
+  var currentWidthTemp = document.getElementById('btnTemp').clientWidth;
+  var currentHeightTemp = document.getElementById('btnTemp').clientHeight;
+
+
+  function mouseDownScan() {
+    document.getElementById('btnScan').style.width = "47px";
+    document.getElementById('btnScan').style.height = "25px";
+  }
+
+  function mouseUpScan() {
+    document.getElementById('btnScan').style.width = clientWidthScan.toString();
+    document.getElementById('btnScan').style.height = clientHeightScan.toString();
+    document.getElementsByTagName("BODY")[0].style.backgroundColor = "#ffffff";
+  }
+
+  function mouseDownDW() {
+    document.getElementById('btnDW').style.width = "45px";
+    document.getElementById('btnDW').style.height = "25px";
+  }
+
+  function mouseUpDW() {
+    document.getElementById('btnDW').style.width = clientWidthDW.toString();
+    document.getElementById('btnDW').style.height = clientHeightDW.toString();
+    document.getElementsByTagName("BODY")[0].style.backgroundColor = "red";
+  }
+
+  function mouseDownCH_WX() {
+    document.getElementById('btnCH_WX').style.width = "45px";
+    document.getElementById('btnCH_WX').style.height = "25px";
+  }
+
+  function mouseUpCH_WX() {
+    document.getElementById('btnCH_WX').style.width = clientWidthCH_WX.toString();
+    document.getElementById('btnCH_WX').style.height = clientHeightCH_WX.toString();
+    document.getElementsByTagName("BODY")[0].style.backgroundColor = "green";
+  }
+
+  function mouseDownHI_LO() {
+    document.getElementById('btnHI_LO').style.width = "45px";
+    document.getElementById('btnHI_LO').style.height = "25px";
+  }
+
+  function mouseUpHI_LO() {
+    document.getElementById('btnHI_LO').style.width = clientWidthHI_LO.toString();
+    document.getElementById('btnHI_LO').style.height = clientHeightHI_LO.toString();
+    document.getElementsByTagName("BODY")[0].style.backgroundColor = "blue";
+  }
+
+  function mouseDownTemp() {
+    document.getElementById('btnTemp').style.width = "30px";
+    document.getElementById('btnTemp').style.height = "30px";
+  }
+
+  function mouseUpTemp() {
+    document.getElementById('btnTemp').style.width = clientWidthHI_LO.toString();
+    document.getElementById('btnTemp').style.height = clientHeightHI_LO.toString();
+    document.getElementsByTagName("BODY")[0].style.backgroundColor = "turquoise";
+  }
+
+  function installRotateOf(elementId, callback) {
+    const R2D = 180 / Math.PI;
+    const rotateElement = document.getElementById(elementId);
+
+    let active = false,
+        angle = 0,
+        rotation = 0,
+        startAngle = 0,
+        center = {
+          x: 0,
+          y: 0
+        };
+
+    // value being sent outside by callback
+    let currentRotation = 0;
+
+    const stop = () => {
+      angle += rotation;
+
+      // "reset" angle if greater than one rotation
+      while (angle > 360) {
+        angle -= 360;
+      }
+
+      currentRotation = angle;
+
+      // range from angle 270 to 360 is being displayed from -1 (359) to -89 (271). We need to
+      // normalize it in order to process it easier later on.
+      if (currentRotation < 0) {
+        currentRotation = 270 + (currentRotation + 90)
+      }
+
+      // reset rotation if it gets buggy by dragging like stupid.
+      if (currentRotation < 0) {
+        currentRotation = 0;
+      }
+
+      angle = currentRotation;
+
+      active = false;
+    };
+
+    function rotate(e) {
+      e.preventDefault();
+      var x = e.clientX - center.x,
+          y = e.clientY - center.y,
+          d = R2D * Math.atan2(y, x);
+      rotation = d - startAngle;
+
+      return rotateElement.style.webkitTransform = 'rotate(' + (angle + rotation)
+          + 'deg)';
+    }
+
+    function start(e) {
+      e.preventDefault();
+      var bb = this.getBoundingClientRect(),
+          t = bb.top,
+          l = bb.left,
+          h = bb.height,
+          w = bb.width,
+          x, y;
+      center = {
+        x: l + (w / 2),
+        y: t + (h / 2)
+      };
+      x = e.clientX - center.x;
+      y = e.clientY - center.y;
+      startAngle = R2D * Math.atan2(y, x);
+      active = true;
+    }
+
+    function init() {
+      rotateElement.addEventListener('mousedown', start, false);
+      $(document).bind('mousemove', function (event) {
+        if (active === true) {
+          event.preventDefault();
+          // event.stopImmediatePropagation();
+          rotate(event);
+        }
+      });
+      $(document).bind('mouseup', function (event) {
+        event.preventDefault();
+        // event.stopImmediatePropagation();
+        if (active === true) {
+          stop(event);
+          callback(angle)
+        }
+      });
+    }
+
+    init();
+  }
+
+  installRotateOf('rotateKnob', function (cr) {
+    console.log('rotateKnob:', cr)
+  });
+  installRotateOf('rotateSmall', function (cr) {
+    console.log('rotateSmall:', cr)
+  });
+
+</script>
+
+</body>
+</html>
