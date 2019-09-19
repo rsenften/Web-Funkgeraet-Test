@@ -9,105 +9,164 @@
 </head>
 <body>
 
-<h1>Funkgerät</h1>
+<h1>Funkgerät Icom Ic M330GE</h1>
 
 <div id="image-wrapper">
   <img class="funkgeraet" src="../../images/IcomIcM330GE.jpg" alt="no">
-    <div class="draggableKnob">
-      <img id="rotateKnob" src="../../images/testKnob.png" alt="no image" width="74" height="74">
-    </div>
-<!--    <div class="draggableSmall">-->
-<!--      <img id="rotateSmall" src="../../images/RadSmall.png" alt="no image" width="52" height="52">-->
-<!--    </div>-->
-    <div class="lowButtons">
-      <div class="divScan">
-        <button id="btnScan" class="button" onmousedown="mouseDownScan()" onmouseup="mouseUpScan()"></button>
-      </div>
-      <div class="divDW">
-        <button id="btnDW" class="button" onmousedown="mouseDownDW()" onmouseup="mouseUpDW()"></button>
-      </div>
-      <div class="divCH_WX">
-        <button id="btnCH_WX" class="button" onmousedown="mouseDownCH_WX()" onmouseup="mouseUpCH_WX()"></button>
-      </div>
-      <div class="divHI_LO">
-        <button id="btnHI_LO" class="button" onmousedown="mouseDownHI_LO()" onmouseup="mouseUpHI_LO()"></button>
-      </div>
-    </div>
-  <div class="temp">
-    <button id="btnTemp" class="button" onmousedown="mouseDownTemp()" onmouseup="mouseUpTemp()"></button>
+  <div class="draggable-Knob">
+    <img id="rotate-Knob" src="../../images/testKnob.png" alt="no image" width="74" height="74">
   </div>
+  <!--    <div class="draggable-Small">-->
+  <!--      <img id="rotate-Small" src="../../images/RadSmall.png" alt="no image" width="52" height="52">-->
+  <!--    </div>-->
+  <div class="buttons-on-bottom">
+    <div class="div-Scan">
+      <button id="btn-Scan" class="button" onmousedown="mouseDownScan()"
+              onmouseup="mouseUpScan()"></button>
+    </div>
+    <div class="div-DW">
+      <button id="btn-DW" class="button" onmousedown="mouseDownDW()"
+              onmouseup="mouseUpDW()"></button>
+    </div>
+    <div class="div-CH_WX">
+      <button id="btn-CH_WX" class="button" onmousedown="mouseDownCH_WX()"
+              onmouseup="mouseUpCH_WX()"></button>
+    </div>
+    <div class="div-HI_LO">
+      <button id="btn-HI_LO" class="button" onmousedown="mouseDownHI_LO()"
+              onmouseup="mouseUpHI_LO()"></button>
+    </div>
+  </div>
+  <div class="temp">
+    <button id="btn-Temp" class="button blue-button" onmousedown="mouseDownTemp()"
+            onmouseup="mouseUpTemp()"></button>
+  </div>
+  <!-- ----------------------------------------------------------------------------------------- -->
+  <div class="side-buttons">
+    <div class="top-row">
+      <div class="div-button-up">
+        <button id="btn-up" class="button" onmousedown="mouseDownBtnUp()"
+                onmouseup="mouseUpBtnUp()"></button>
+      </div>
+    </div>
+    <div class="middle-row">
+      <div class="div-button-left">
+        <button id="btn-left" class="button" onmousedown="mouseDownBtnLeft()"
+                onmouseup="mouseUpBtnLeft()"></button>
+      </div>
+      <div class="div-enter">
+        <button id="btn-enter" class="button"></button>
+      </div>
+      <div class="div-button-right">
+        <button id="btn-right" class="button"></button>
+      </div>
+    </div>
+    <div class="bottom-row">
+      <div class="div-button-menu">
+        <button id="btn-menu" class="button"></button>
+      </div>
+      <div class="div-down">
+        <button id="btn-down" class="button"></button>
+      </div>
+      <div class="div-button-clear">
+        <button id="btn-clear" class="button"></button>
+      </div>
+    </div>
+  </div>
+  <!-- ----------------------------------------------------------------------------------------- -->
 </div>
 
 
 <script type="text/javascript">
 
-  var clientWidthScan = document.getElementById('btnScan').style.width;
-  var clientHeightScan = document.getElementById('btnScan').style.height;
-  var clientWidthDW = document.getElementById('btnDW').style.width;
-  var clientHeightDW = document.getElementById('btnDW').style.height;
-  var clientWidthCH_WX = document.getElementById('btnCH_WX').style.width;
-  var clientHeightCH_WX = document.getElementById('btnCH_WX').style.height;
-  var clientWidthHI_LO = document.getElementById('btnHI_LO').style.width;
-  var clientHeightHI_LO = document.getElementById('btnHI_LO').style.height;
-  var clientWidthTemp = document.getElementById('btnTemp').style.width;
-  var clientHeightTemp = document.getElementById('btnTemp').style.height;
-  var currentWidthTemp = document.getElementById('btnTemp').clientWidth;
-  var currentHeightTemp = document.getElementById('btnTemp').clientHeight;
-
+  var clientWidthScan = document.getElementById('btn-Scan').style.width;
+  var clientHeightScan = document.getElementById('btn-Scan').style.height;
+  var clientWidthDW = document.getElementById('btn-DW').style.width;
+  var clientHeightDW = document.getElementById('btn-DW').style.height;
+  var clientWidthCH_WX = document.getElementById('btn-CH_WX').style.width;
+  var clientHeightCH_WX = document.getElementById('btn-CH_WX').style.height;
+  var clientWidthHI_LO = document.getElementById('btn-HI_LO').style.width;
+  var clientHeightHI_LO = document.getElementById('btn-HI_LO').style.height;
+  var clientWidthTemp = document.getElementById('btn-Temp').style.width;
+  var clientHeightTemp = document.getElementById('btn-Temp').style.height;
+  var clientWidthBtnLeft = document.getElementById('btn-left').style.width;
+  var clientHeightBtnLeft = document.getElementById('btn-left').style.height;
+  var clientWidthBtnUp = document.getElementById('btn-up').style.width;
+  var clientHeightBtnUp = document.getElementById('btn-up').style.height;
 
   function mouseDownScan() {
-    document.getElementById('btnScan').style.width = "47px";
-    document.getElementById('btnScan').style.height = "25px";
+    document.getElementById('btn-Scan').style.width = '48px';
+    document.getElementById('btn-Scan').style.height = '29px';
   }
 
   function mouseUpScan() {
-    document.getElementById('btnScan').style.width = clientWidthScan.toString();
-    document.getElementById('btnScan').style.height = clientHeightScan.toString();
-    document.getElementsByTagName("BODY")[0].style.backgroundColor = "#ffffff";
+    document.getElementById('btn-Scan').style.width = clientWidthScan.toString();
+    document.getElementById('btn-Scan').style.height = clientHeightScan.toString();
+    document.getElementsByTagName('BODY')[0].style.backgroundColor = '#ffffff';
   }
 
   function mouseDownDW() {
-    document.getElementById('btnDW').style.width = "45px";
-    document.getElementById('btnDW').style.height = "25px";
+    document.getElementById('btn-DW').style.width = '48px';
+    document.getElementById('btn-DW').style.height = '28px';
   }
 
   function mouseUpDW() {
-    document.getElementById('btnDW').style.width = clientWidthDW.toString();
-    document.getElementById('btnDW').style.height = clientHeightDW.toString();
-    document.getElementsByTagName("BODY")[0].style.backgroundColor = "red";
+    document.getElementById('btn-DW').style.width = clientWidthDW.toString();
+    document.getElementById('btn-DW').style.height = clientHeightDW.toString();
+    document.getElementsByTagName('BODY')[0].style.backgroundColor = 'red';
   }
 
   function mouseDownCH_WX() {
-    document.getElementById('btnCH_WX').style.width = "45px";
-    document.getElementById('btnCH_WX').style.height = "25px";
+    document.getElementById('btn-CH_WX').style.width = '48px';
+    document.getElementById('btn-CH_WX').style.height = '28px';
   }
 
   function mouseUpCH_WX() {
-    document.getElementById('btnCH_WX').style.width = clientWidthCH_WX.toString();
-    document.getElementById('btnCH_WX').style.height = clientHeightCH_WX.toString();
-    document.getElementsByTagName("BODY")[0].style.backgroundColor = "green";
+    document.getElementById('btn-CH_WX').style.width = clientWidthCH_WX.toString();
+    document.getElementById('btn-CH_WX').style.height = clientHeightCH_WX.toString();
+    document.getElementsByTagName('BODY')[0].style.backgroundColor = 'green';
   }
 
   function mouseDownHI_LO() {
-    document.getElementById('btnHI_LO').style.width = "45px";
-    document.getElementById('btnHI_LO').style.height = "25px";
+    document.getElementById('btn-HI_LO').style.width = '48px';
+    document.getElementById('btn-HI_LO').style.height = '28px';
   }
 
   function mouseUpHI_LO() {
-    document.getElementById('btnHI_LO').style.width = clientWidthHI_LO.toString();
-    document.getElementById('btnHI_LO').style.height = clientHeightHI_LO.toString();
-    document.getElementsByTagName("BODY")[0].style.backgroundColor = "blue";
+    document.getElementById('btn-HI_LO').style.width = clientWidthHI_LO.toString();
+    document.getElementById('btn-HI_LO').style.height = clientHeightHI_LO.toString();
+    document.getElementsByTagName('BODY')[0].style.backgroundColor = 'blue';
   }
 
   function mouseDownTemp() {
-    document.getElementById('btnTemp').style.width = "30px";
-    document.getElementById('btnTemp').style.height = "30px";
+    document.getElementById('btn-Temp').style.width = '31px';
+    document.getElementById('btn-Temp').style.height = '31px';
   }
 
   function mouseUpTemp() {
-    document.getElementById('btnTemp').style.width = clientWidthHI_LO.toString();
-    document.getElementById('btnTemp').style.height = clientHeightHI_LO.toString();
-    document.getElementsByTagName("BODY")[0].style.backgroundColor = "turquoise";
+    document.getElementById('btn-Temp').style.width = clientWidthTemp.toString();
+    document.getElementById('btn-Temp').style.height = clientHeightTemp.toString();
+    document.getElementsByTagName('BODY')[0].style.backgroundColor = 'turquoise';
+  }
+
+  function mouseDownBtnLeft() {
+    document.getElementById('btn-left').style.width = '27px';
+    document.getElementById('btn-left').style.height = '31px';
+  }
+
+  function mouseUpBtnLeft() {
+    document.getElementById('btn-left').style.width = clientWidthBtnLeft.toString();
+    document.getElementById('btn-left').style.height = clientHeightBtnLeft.toString();
+  }
+
+  function mouseDownBtnUp() {
+    document.getElementById('btn-up').style.width = '39px';
+    document.getElementById('btn-up').style.height = '23px';
+  }
+
+  function mouseUpBtnUp() {
+    document.getElementById('btn-up').style.width = clientWidthBtnUp.toString();
+    document.getElementById('btn-up').style.height = clientHeightBtnUp.toString();
   }
 
   function installRotateOf(elementId, callback) {
@@ -203,11 +262,11 @@
     init();
   }
 
-  installRotateOf('rotateKnob', function (cr) {
-    console.log('rotateKnob:', cr)
+  installRotateOf('rotate-Knob', function (cr) {
+    console.log('rotate-Knob:', cr)
   });
-  installRotateOf('rotateSmall', function (cr) {
-    console.log('rotateSmall:', cr)
+  installRotateOf('rotate-Knob', function (cr) {
+    console.log('rotate-Knob:', cr)
   });
 
 </script>

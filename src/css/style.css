@@ -7,14 +7,14 @@ button {
   height: 800px;
 }
 
-.draggableKnob {
+.draggable-Knob {
   margin-left: 590px;
   margin-top: -332px;
   height: 200px;
   border-radius: 100px;
 }
 
-.draggableSmall {
+.draggable-Small {
   position: absolute;
   left: 92px;
   top: 83px;
@@ -39,7 +39,7 @@ div.absolute {
 
 .button {
   background-size: contain;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-position: center;
   background-color: #1f2324;
 }
@@ -48,48 +48,137 @@ div.absolute {
   outline: 0;
 }
 
-#btnScan {
+#btn-Scan {
   background-image: url("../../images/btn330_Low1.png");
   width: 49px;
   height: 30px;
 }
 
-#btnDW {
+#btn-DW {
   background-image: url("../../images/btn330_Low2.png");
   width: 49px;
   height: 29px;
 }
 
-#btnCH_WX {
+#btn-CH_WX {
   background-image: url("../../images/btn330_Low3.png");
   width: 49px;
   height: 29px;
 }
 
-#btnHI_LO {
+#btn-HI_LO {
   background-image: url("../../images/btn330_Low4.png");
   width: 49px;
   height: 29px;
 }
 
-.lowButtons {
+.buttons-on-bottom {
   display: flex;
   margin-top: -166px;
   margin-left: 312px;
   width: fit-content;
+  height: 32px;
 }
 
-.lowButtons > div {
+.buttons-on-bottom > div {
   margin-left: 4px;
   width: 49px;
 }
 
-.lowButtons .divHI_LO {
+.buttons-on-bottom .div-HI_LO {
   margin-left: 5px;
 }
 
-#btnTemp {
+.blue-button {
+  background-color: transparent;
+}
+
+.temp {
+  margin-top: -47px;
+  margin-left: 539px;
+  width: 32px;
+  height: 32px;
+}
+
+#btn-Temp {
   background-image: url("../../images/temp.png");
   width: 32px;
   height: 32px;
 }
+
+/*---------------------------------------------------------------*/
+.side-buttons {
+  margin-top: -168px;
+  margin-left: 553px;
+  width: 113px;
+  height: 32px;
+}
+
+.side-buttons > div {
+  margin-bottom: 6px;
+}
+
+.top-row {
+  justify-content: center;
+}
+
+.top-row > div {
+  text-align: center;
+}
+
+.middle-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bottom-row {
+  display: flex;
+}
+
+/*.side-buttons > div {*/
+/*  width: 40px;*/
+/*  height: 50px;*/
+/*}*/
+
+#btn-left {
+  background-image: url("../../images/btn330LEFT.png");
+  width: 28px;
+  height: 35px;
+}
+
+#btn-up {
+  background-image: url("../../images/btn330UP.png");
+  width: 40px;
+  height: 24px;
+}
+
+#btn-right {
+  background-image: url("../../images/btn330RIGHT.png");
+  width: 29px;
+  height: 35px;
+}
+
+#btn-down {
+  background-image: url("../../images/btn330DOWN.png");
+  width: 40px;
+  height: 25px;
+}
+
+#btn-enter {
+  background-image: url("../../images/btn330ENT.png");
+  width: 37px;
+  height: 30px;
+}
+
+#btn-menu {
+  background-image: url("../../images/btn330MENU.png");
+  width: 31px;
+  height: 24px;
+}
+
+#btn-clear {
+  background-image: url("../../images/btn330CLR.png");
+  width: 32px;
+  height: 25px;
+}
+/*---------------------------------------------------------------*/
