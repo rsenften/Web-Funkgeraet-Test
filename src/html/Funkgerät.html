@@ -82,154 +82,189 @@
 
 <script type="text/javascript">
 
-  var clientWidthScan = document.getElementById('btn-Scan').style.width;
-  var clientHeightScan = document.getElementById('btn-Scan').style.height;
-  var clientWidthDW = document.getElementById('btn-DW').style.width;
-  var clientHeightDW = document.getElementById('btn-DW').style.height;
-  var clientWidthCH_WX = document.getElementById('btn-CH_WX').style.width;
-  var clientHeightCH_WX = document.getElementById('btn-CH_WX').style.height;
-  var clientWidthHI_LO = document.getElementById('btn-HI_LO').style.width;
-  var clientHeightHI_LO = document.getElementById('btn-HI_LO').style.height;
-  var clientWidthTemp = document.getElementById('btn-Temp').style.width;
-  var clientHeightTemp = document.getElementById('btn-Temp').style.height;
-  var clientWidthBtnUp = document.getElementById('btn-up').style.width;
-  var clientHeightBtnUp = document.getElementById('btn-up').style.height;
-  var clientWidthBtnLeft = document.getElementById('btn-left').style.width;
-  var clientHeightBtnLeft = document.getElementById('btn-left').style.height;
-  var clientWidthBtnEnter = document.getElementById('btn-enter').style.width;
-  var clientHeightBtnEnter = document.getElementById('btn-enter').style.height;
-  var clientWidthBtnRight = document.getElementById('btn-right').style.width;
-  var clientHeightBtnRight = document.getElementById('btn-right').style.height;
-  var clientWidthBtnMenu = document.getElementById('btn-menu').style.width;
-  var clientHeightBtnMenu = document.getElementById('btn-menu').style.height;
-  var clientWidthBtnDown = document.getElementById('btn-down').style.width;
-  var clientHeightBtnDown = document.getElementById('btn-down').style.height;
-  var clientWidthBtnClear = document.getElementById('btn-clear').style.width;
-  var clientHeightBtnClear = document.getElementById('btn-clear').style.height;
+  const elementIds = [
+    'btn-Scan',
+    'btn-DW',
+    'btn-CH_WX',
+    'btn-HI_LO',
+    'btn-Temp',
+    'btn-up',
+    'btn-left',
+    'btn-enter',
+    'btn-right',
+    'btn-menu',
+    'btn-down',
+    'btn-clear'
+  ];
+
+  const elements = elementIds.map(id => document.getElementById(id));
+
+  function getWidthAndHeight(elemId) {
+    const i = elementIds.findIndex(id => id === elemId);
+    return {width: elements[i].style.width, height: elements[i].style.height}
+  }
+
+  const {width: clientWidthScan, height: clientHeightScan} = getWidthAndHeight('btn-Scan');
+  const {width: clientWidthDW, height: clientHeightDW} = getWidthAndHeight('btn-DW');
+  const {width: clientWidthCH_WX, height: clientHeightCH_WX} = getWidthAndHeight('btn-CH_WX');
+  const {width: clientWidthHI_LO, height: clientHeightHI_LO} = getWidthAndHeight('btn-HI_LO');
+  const {width: clientWidthTemp, height: clientHeightTemp} = getWidthAndHeight('btn-Temp');
+  const {width: clientWidthBtnUp, height: clientHeightBtnUp} = getWidthAndHeight('btn-up');
+  const {width: clientWidthBtnLeft, height: clientHeightBtnLeft} = getWidthAndHeight('btn-left');
+  const {width: clientWidthBtnEnter, height: clientHeightBtnEnter} = getWidthAndHeight('btn-enter');
+  const {width: clientWidthBtnRight, height: clientHeightBtnRight} = getWidthAndHeight('btn-right');
+  const {width: clientWidthBtnMenu, height: clientHeightBtnMenu} = getWidthAndHeight('btn-menu');
+  const {width: clientWidthBtnDown, height: clientHeightBtnDown} = getWidthAndHeight('btn-down');
+  const {width: clientWidthBtnClear, height: clientHeightBtnClear} = getWidthAndHeight('btn-clear');
+
 
   function mouseDownScan() {
-    document.getElementById('btn-Scan').style.width = '48px';
-    document.getElementById('btn-Scan').style.height = '29px';
+    const i = elementIds.findIndex(id => id === 'btn-Scan');
+    elements[i].style.width = '48px';
+    elements[i].style.height = '29px';
   }
 
   function mouseUpScan() {
-    document.getElementById('btn-Scan').style.width = clientWidthScan.toString();
-    document.getElementById('btn-Scan').style.height = clientHeightScan.toString();
+    const i = elementIds.findIndex(id => id === 'btn-Scan');
+    elements[i].style.width = clientWidthScan;
+    elements[i].style.height = clientHeightScan;
     document.getElementsByTagName('BODY')[0].style.backgroundColor = '#ffffff';
   }
 
   function mouseDownDW() {
-    document.getElementById('btn-DW').style.width = '48px';
-    document.getElementById('btn-DW').style.height = '28px';
+    const i = elementIds.findIndex(id => id === 'btn-DW');
+    elements[i].style.width = '48px';
+    elements[i].style.height = '28px';
   }
 
   function mouseUpDW() {
-    document.getElementById('btn-DW').style.width = clientWidthDW.toString();
-    document.getElementById('btn-DW').style.height = clientHeightDW.toString();
+    const i = elementIds.findIndex(id => id === 'btn-DW');
+    elements[i].style.width = clientWidthDW;
+    elements[i].style.height = clientHeightDW;
     document.getElementsByTagName('BODY')[0].style.backgroundColor = 'red';
   }
 
   function mouseDownCH_WX() {
-    document.getElementById('btn-CH_WX').style.width = '48px';
-    document.getElementById('btn-CH_WX').style.height = '28px';
+    const i = elementIds.findIndex(id => id === 'btn-CH_WX');
+    elements[i].style.width = '48px';
+    elements[i].style.height = '28px';
   }
 
   function mouseUpCH_WX() {
-    document.getElementById('btn-CH_WX').style.width = clientWidthCH_WX.toString();
-    document.getElementById('btn-CH_WX').style.height = clientHeightCH_WX.toString();
+    const i = elementIds.findIndex(id => id === 'btn-CH_WX');
+    elements[i].style.width = clientWidthCH_WX;
+    elements[i].style.height = clientHeightCH_WX;
     document.getElementsByTagName('BODY')[0].style.backgroundColor = 'green';
   }
 
   function mouseDownHI_LO() {
-    document.getElementById('btn-HI_LO').style.width = '48px';
-    document.getElementById('btn-HI_LO').style.height = '28px';
+    const i = elementIds.findIndex(id => id === 'btn-HI_LO');
+    elements[i].style.width = '48px';
+    elements[i].style.height = '28px';
   }
 
   function mouseUpHI_LO() {
-    document.getElementById('btn-HI_LO').style.width = clientWidthHI_LO.toString();
-    document.getElementById('btn-HI_LO').style.height = clientHeightHI_LO.toString();
+    const i = elementIds.findIndex(id => id === 'btn-HI_LO');
+    elements[i].style.width = clientWidthHI_LO;
+    elements[i].style.height = clientHeightHI_LO;
     document.getElementsByTagName('BODY')[0].style.backgroundColor = 'blue';
   }
 
   function mouseDownTemp() {
-    document.getElementById('btn-Temp').style.width = '31px';
-    document.getElementById('btn-Temp').style.height = '31px';
+    const i = elementIds.findIndex(id => id === 'btn-Temp');
+    elements[i].style.width = '31px';
+    elements[i].style.height = '31px';
   }
 
   function mouseUpTemp() {
-    document.getElementById('btn-Temp').style.width = clientWidthTemp.toString();
-    document.getElementById('btn-Temp').style.height = clientHeightTemp.toString();
+    const i = elementIds.findIndex(id => id === 'btn-Temp');
+    elements[i].style.width = clientWidthTemp;
+    elements[i].style.height = clientHeightTemp;
     document.getElementsByTagName('BODY')[0].style.backgroundColor = 'turquoise';
   }
 
   function mouseDownBtnLeft() {
-    document.getElementById('btn-left').style.width = '27px';
-    document.getElementById('btn-left').style.height = '34px';
+    const i = elementIds.findIndex(id => id === 'btn-left');
+    elements[i].style.width = '27px';
+    elements[i].style.height = '34px';
   }
 
   function mouseUpBtnLeft() {
-    document.getElementById('btn-left').style.width = clientWidthBtnLeft.toString();
-    document.getElementById('btn-left').style.height = clientHeightBtnLeft.toString();
+    const i = elementIds.findIndex(id => id === 'btn-left');
+    elements[i].style.width = clientWidthBtnLeft;
+    elements[i].style.height = clientHeightBtnLeft;
   }
 
   function mouseDownBtnUp() {
-    document.getElementById('btn-up').style.width = '40px';
-    document.getElementById('btn-up').style.height = '24px';
+    const i = elementIds.findIndex(id => id === 'btn-up');
+    elements[i].style.width = '40px';
+    elements[i].style.height = '24px';
   }
 
   function mouseUpBtnUp() {
-    document.getElementById('btn-up').style.width = clientWidthBtnUp.toString();
-    document.getElementById('btn-up').style.height = clientHeightBtnUp.toString();
+    const i = elementIds.findIndex(id => id === 'btn-up');
+    elements[i].style.width = clientWidthBtnUp;
+    elements[i].style.height = clientHeightBtnUp;
   }
 
   function mouseDownBtnEnter() {
-    document.getElementById('btn-enter').style.width = '36px';
-    document.getElementById('btn-enter').style.height = '29px';
+    const i = elementIds.findIndex(id => id === 'btn-enter');
+    elements[i].style.width = '36px';
+    elements[i].style.height = '29px';
   }
 
   function mouseUpBtnEnter() {
-    document.getElementById('btn-enter').style.width = clientWidthBtnEnter.toString();
-    document.getElementById('btn-enter').style.height = clientHeightBtnEnter.toString();
+    const i = elementIds.findIndex(id => id === 'btn-enter');
+    elements[i].style.width = clientWidthBtnEnter;
+    elements[i].style.height = clientHeightBtnEnter;
   }
 
   function mouseDownBtnRight() {
-    document.getElementById('btn-right').style.width = '28px';
-    document.getElementById('btn-right').style.height = '34px';
+    const i = elementIds.findIndex(id => id === 'btn-right');
+    elements[i].style.width = '28px';
+    elements[i].style.height = '34px';
   }
 
   function mouseUpBtnRight() {
-    document.getElementById('btn-right').style.width = clientWidthBtnRight.toString();
-    document.getElementById('btn-right').style.height = clientHeightBtnRight.toString();
+    const i = elementIds.findIndex(id => id === 'btn-right');
+    elements[i].style.width = clientWidthBtnRight;
+    elements[i].style.height = clientHeightBtnRight;
   }
 
   function mouseDownBtnMenu() {
-    document.getElementById('btn-menu').style.width = '30px';
-    document.getElementById('btn-menu').style.height = '23px';
+    const i = elementIds.findIndex(id => id === 'btn-menu');
+    elements[i].style.width = '30px';
+    elements[i].style.height = '23px';
   }
 
   function mouseUpBtnMenu() {
-    document.getElementById('btn-menu').style.width = clientWidthBtnMenu.toString();
-    document.getElementById('btn-menu').style.height = clientHeightBtnMenu.toString();
+    const i = elementIds.findIndex(id => id === 'btn-menu');
+    elements[i].style.width = clientWidthBtnMenu;
+    elements[i].style.height = clientHeightBtnMenu;
   }
 
   function mouseDownBtnDown() {
-    document.getElementById('btn-down').style.width = '39px';
-    document.getElementById('btn-down').style.height = '24px';
+    const i = elementIds.findIndex(id => id === 'btn-down');
+    elements[i].style.width = '39px';
+    elements[i].style.height = '24px';
   }
 
   function mouseUpBtnDown() {
-    document.getElementById('btn-down').style.width = clientWidthBtnDown.toString();
-    document.getElementById('btn-down').style.height = clientHeightBtnDown.toString();
+    const i = elementIds.findIndex(id => id === 'btn-down');
+    elements[i].style.width = clientWidthBtnDown;
+    elements[i].style.height = clientHeightBtnDown;
   }
 
   function mouseDownBtnClear() {
-    document.getElementById('btn-clear').style.width = '31px';
-    document.getElementById('btn-clear').style.height = '24px';
+    const i = elementIds.findIndex(id => id === 'btn-clear');
+    elements[i].style.width = '32px';
+    elements[i].style.height = '24px';
   }
 
   function mouseUpBtnClear() {
-    document.getElementById('btn-clear').style.width = clientWidthBtnClear.toString();
-    document.getElementById('btn-clear').style.height = clientHeightBtnClear.toString();
+    const i = elementIds.findIndex(id => id === 'btn-clear');
+    elements[i].style.width = clientWidthBtnClear;
+    elements[i].style.height = clientHeightBtnClear;
   }
 
   function installRotateOf(elementId, callback) {
@@ -276,7 +311,7 @@
 
     function rotate(e) {
       e.preventDefault();
-      var x = e.clientX - center.x,
+      let x = e.clientX - center.x,
           y = e.clientY - center.y,
           d = R2D * Math.atan2(y, x);
       rotation = d - startAngle;
@@ -287,7 +322,7 @@
 
     function start(e) {
       e.preventDefault();
-      var bb = this.getBoundingClientRect(),
+      let bb = this.getBoundingClientRect(),
           t = bb.top,
           l = bb.left,
           h = bb.height,
