@@ -1,3 +1,7 @@
+body {
+  background-color: darkred; /* Diese Zeilen löschen */
+}
+
 button {
   border: 0 none;
 }
@@ -220,4 +224,70 @@ div.absolute {
   background-image: url("../../images/btn330CLR.png");
   width: 33px;
   height: 25px;
+}
+
+/*.div-distress-container {*/
+/*  position: relative;*/
+/*  height: 69px;*/
+/*  width: fit-content;*/
+/*  !*background-color: #4753ed;*!*/
+/*}*/
+
+/*.div-distress-container:hover .img-distress {*/
+/*  -webkit-transform: scaleY(-1);*/
+/*  transform: scaleY(-1);*/
+/*  margin-top: -45px;*/
+/*}*/
+
+/*.btn-below-distress {*/
+/*  width: 40px;*/
+/*  height: 20px;*/
+/*  background-color: red;*/
+/*}*/
+
+/*.btn-below-distress:focus {*/
+/*  outline: 0;*/
+/*}*/
+
+/*.div-btn-below-distress {*/
+/*  margin-top: -20px;*/
+/*  margin-left: 7px;*/
+/*}*/
+
+.div-screen-container {
+  margin-left: 321px;
+  margin-top: -9px;
+}
+
+.menupoints-container {
+  margin-top: -100px;
+  margin-left: 20px;
+}
+
+.text-container > div {
+  font-size: 13px;
+}
+
+.arrow-point {
+  display: none;
+  position: absolute;
+  margin-left: -14px;
+  margin-top: -1px;
+}
+
+.first-arrow-point {
+  display: block;
+}
+
+.menu-text {
+  width: fit-content;
+  height: fit-content;
+}
+
+.point {
+  margin-top: 1px;
+}
+
+.fourth-screen {
+  margin-top: -102px;
 }

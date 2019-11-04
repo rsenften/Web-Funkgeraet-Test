@@ -5,14 +5,13 @@
   <title>Mein Funkgerät</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="../../src/css/style.css" media="screen">
-
 </head>
 <body>
 
 <h1>Funkgerät Icom Ic M330GE</h1>
 
 <div id="image-wrapper">
-  <img class="funkgeraet" src="../../images/IcomIcM330GE.jpg" alt="no">
+  <img id="funkgeraet-id" class="funkgeraet" src="../../images/IcomIcM330GE.jpg" alt="no">
   <div class="draggable-Knob">
     <img id="rotate-Knob" src="../../images/testKnob.png" alt="no image" width="74" height="74">
   </div>
@@ -45,7 +44,8 @@
     <div class="top-row">
       <div class="div-button-up">
         <button id="btn-up" class="button" onmousedown="mouseDownBtnUp()"
-                onmouseup="mouseUpBtnUp()"></button>
+                onmouseup="mouseUpBtnUp()"
+                onclick="arrowNavigationFunction(-1)"></button>
       </div>
     </div>
     <div class="middle-row">
@@ -69,7 +69,8 @@
       </div>
       <div class="div-down">
         <button id="btn-down" class="button" onmousedown="mouseDownBtnDown()"
-                onmouseup="mouseUpBtnDown()"></button>
+                onmouseup="mouseUpBtnDown()"
+                onclick="arrowNavigationFunction(+1)"></button>
       </div>
       <div class="div-button-clear">
         <button id="btn-clear" class="button" onmousedown="mouseDownBtnClear()"
@@ -77,10 +78,154 @@
       </div>
     </div>
   </div>
+  <!-- ----------------------------------------------------------------------------------------- -->
+  <!--  <div class="div-distress-container">-->
+  <!--    <img id="img-distress-id" class="img-distress" src="../../images/330Distress.png" alt="No Image for you">-->
+  <!--  </div>-->
+  <!--  <div class="div-btn-below-distress">-->
+  <!--    <button class="btn-below-distress" type="button" onclick="alert('TEST')">CLick</button>-->
+  <!--  </div>-->
+  <!-- ----------------------------------------------------------------------------------------- -->
+  <div id="screen-container-id" class="div-screen-container">
+    <img id="menu-screen-id" class="menu-screen" src="../../images/EmptyScreen.jpg" alt="NEIN">
+    <img id="fourth-screen-id" class="fourth-screen" src="../../images/fourthScreen.jpg" alt="NEIN">
+    <div id="menupoints-container-id" class="menupoints-container">
+      <div id="menu-0" class="text-container">
+        <div class="arrow-point first-arrow-point">></div>
+        <div id="text-first-line-id" class="menu-text point">Das ist mein erster Text</div>
+      </div>
+      <div id="menu-1" class="text-container">
+        <div class="arrow-point">></div>
+        <div id="text-second-line-id" class="menu-text point">Der zweite Text</div>
+
+      </div>
+      <div id="menu-2" class="text-container">
+        <div class="arrow-point">></div>
+        <div id="text-third-line-id" class="menu-text point">Der dritte Text</div>
+
+      </div>
+      <div id="menu-3" class="text-container">
+        <div class="arrow-point">></div>
+        <div id="text-fourth-line-id" class="menu-text point">Der vierte Text</div>
+
+      </div>
+    </div>
+  </div>
 </div>
 
 
 <script type="text/javascript">
+
+  let textFirstLine = 'Das ist mein erster Text';
+  let textSecondLine = 'Der zweite Text';
+  let textThirdLine = 'Der dritte Text';
+  let textFourthLine = 'Der vierte Text';
+  let textFifthLine = 'BOOOOOO';
+  let textSixthLine = 'Noch mehr?!';
+  let textSeventhLine = 'Jans Aufgabe';
+  let textEighthLine = 'Der aller letzte Text';
+
+  document.getElementById('fourth-screen-id').style.display = 'none';
+
+  let arrowNavigationFunction = () => {
+  };
+  (function initMenuNavigation() {
+
+        let i = 0;
+        const maxIndex = 3;
+
+        let clicks = 0;
+        const maxClicks = 7;
+        const minClicks = 0;
+
+        arrowNavigationFunction = function (direction) {
+          if (direction == null || direction === 0) {
+            console.error('Wrong argument for direction.');
+            return;
+          }
+
+          document.querySelector(`#menu-${i} .arrow-point`).style.display = 'none';
+
+          if (direction < 0) {
+            // negative
+            if (i === 0) {
+              // do nothing
+            } else {
+              i += direction;
+            }
+            if (clicks <= minClicks) {
+              // do nothing
+            } else {
+              clicks--;
+            }
+            if (i === 0 && clicks === 0) {
+              document.getElementById('text-first-line-id').innerHTML = textFirstLine;
+              document.getElementById('text-second-line-id').innerHTML = textSecondLine;
+              document.getElementById('text-third-line-id').innerHTML = textThirdLine;
+              document.getElementById('text-fourth-line-id').innerHTML = textFourthLine;
+            } else if (i === 0 && clicks === 1) {
+              document.getElementById('text-first-line-id').innerHTML = textSecondLine;
+              document.getElementById('text-second-line-id').innerHTML = textThirdLine;
+              document.getElementById('text-third-line-id').innerHTML = textFourthLine;
+              document.getElementById('text-fourth-line-id').innerHTML = textFifthLine;
+            } else if (i === 0 && clicks === 2) {
+              document.getElementById('text-first-line-id').innerHTML = textThirdLine;
+              document.getElementById('text-second-line-id').innerHTML = textFourthLine;
+              document.getElementById('text-third-line-id').innerHTML = textFifthLine;
+              document.getElementById('text-fourth-line-id').innerHTML = textSixthLine;
+            } else if (i === 0 && clicks === 3) {
+              document.getElementById('text-first-line-id').innerHTML = textFourthLine;
+              document.getElementById('text-second-line-id').innerHTML = textFifthLine;
+              document.getElementById('text-third-line-id').innerHTML = textSixthLine;
+              document.getElementById('text-fourth-line-id').innerHTML = textSeventhLine;
+            }
+          } else {
+            // positive
+            if (i >= maxIndex) {
+              // do nothing
+            } else {
+              i += direction;
+            }
+            if (clicks >= maxClicks) {
+              // do nothing
+            } else {
+              clicks++;
+            }
+            if (clicks === 4) {
+              document.getElementById('text-first-line-id').innerHTML = textSecondLine;
+              document.getElementById('text-second-line-id').innerHTML = textThirdLine;
+              document.getElementById('text-third-line-id').innerHTML = textFourthLine;
+              document.getElementById('text-fourth-line-id').innerHTML = textFifthLine;
+            } else if (clicks === 5) {
+              document.getElementById('text-first-line-id').innerHTML = textThirdLine;
+              document.getElementById('text-second-line-id').innerHTML = textFourthLine;
+              document.getElementById('text-third-line-id').innerHTML = textFifthLine;
+              document.getElementById('text-fourth-line-id').innerHTML = textSixthLine;
+            } else if (clicks === 6) {
+              document.getElementById('text-first-line-id').innerHTML = textFourthLine;
+              document.getElementById('text-second-line-id').innerHTML = textFifthLine;
+              document.getElementById('text-third-line-id').innerHTML = textSixthLine;
+              document.getElementById('text-fourth-line-id').innerHTML = textSeventhLine;
+            } else if (clicks === 7) {
+              document.getElementById('text-first-line-id').innerHTML = textFifthLine;
+              document.getElementById('text-second-line-id').innerHTML = textSixthLine;
+              document.getElementById('text-third-line-id').innerHTML = textSeventhLine;
+              document.getElementById('text-fourth-line-id').innerHTML = textEighthLine;
+            }
+          }
+          document.querySelector(`#menu-${i} .arrow-point`).style.display = 'block';
+          console.log('i: ' + i);
+          console.log('meine clicks: ' + clicks);
+
+          document.getElementById('btn-enter').onclick = function () {
+            if (clicks === 3) {
+              document.getElementById('menupoints-container-id').style.display = 'none';
+              document.getElementById('fourth-screen-id').style.display = 'block';
+            }
+          };
+        }
+      }
+  )();
 
   const elementIds = [
     'btn-Scan',
@@ -95,6 +240,7 @@
     'btn-menu',
     'btn-down',
     'btn-clear'
+    // 'img-distress-id'
   ];
 
   const elements = elementIds.map(id => document.getElementById(id));
@@ -116,7 +262,6 @@
   const {width: clientWidthBtnMenu, height: clientHeightBtnMenu} = getWidthAndHeight('btn-menu');
   const {width: clientWidthBtnDown, height: clientHeightBtnDown} = getWidthAndHeight('btn-down');
   const {width: clientWidthBtnClear, height: clientHeightBtnClear} = getWidthAndHeight('btn-clear');
-
 
   function mouseDownScan() {
     const i = elementIds.findIndex(id => id === 'btn-Scan');
@@ -266,6 +411,10 @@
     elements[i].style.width = clientWidthBtnClear;
     elements[i].style.height = clientHeightBtnClear;
   }
+
+  // function myEnterFunction() {
+  //   const i = elementIds.findIndex(id => id === 'img-distress-id');
+  // }
 
   function installRotateOf(elementId, callback) {
     const R2D = 180 / Math.PI;
